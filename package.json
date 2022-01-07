@@ -42,7 +42,7 @@
     "start": "export HTTPS=true && SSL_CRT_FILE=cert.pem && SSL_KEY_FILE=key.pem react-scripts start webpack --watch --progress",
     "build": "react-scripts build webpack",
     "deploy": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir lib --copy-files && tsc",
-    "publish:custom": "np --no-tests",
+    "publish:custom": "np --no-tests --no-release-draft ",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "postinstall": "webpack --config webpack.config.js"
