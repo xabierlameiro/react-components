@@ -163,7 +163,6 @@ async function saveMessagingDeviceToken() {
     const bla = getMessaging();
     const currentToken = await getToken(bla);
     if (currentToken) {
-      console.log("Got FCM device token:", currentToken);
       // Saving the Device Token to Cloud Firestore.
       const tokenRef = doc(getFirestore(), "fcmTokens", currentToken);
       await setDoc(tokenRef, { uid: getAuth()?.currentUser?.uid });
@@ -235,14 +234,14 @@ function authStateObserver(user: any) {
   if (user) {
     // User is signed in!
     // Get the signed-in user's profile pic and name.
-    const profilePicUrl: string = getProfilePicUrl() || "";
-    const userName = getUserName();
+    // const profilePicUrl: string = getProfilePicUrl() || "";
+    // const userName = getUserName();
 
     // Set the user's profile pic and name.
-    const picture = "url(" + addSizeToGoogleProfilePic(profilePicUrl) + ")";
+    // const picture = "url(" + addSizeToGoogleProfilePic(profilePicUrl) + ")";
     // We save the Firebase Messaging Device token and enable notifications.
 
-    console.log(userName, picture);
+    // console.log(userName, picture);
     // podemos enseñar la imagen y el nombre de usuario y mostrar el botón de logout
     saveMessagingDeviceToken();
   } else {
@@ -255,12 +254,12 @@ function authStateObserver(user: any) {
 }
 
 // // Adds a size to Google Profile pics URLs.
-function addSizeToGoogleProfilePic(url: string) {
-  if (url.indexOf("googleusercontent.com") !== -1 && url.indexOf("?") === -1) {
-    return url + "?sz=150";
-  }
-  return url;
-}
+// function addSizeToGoogleProfilePic(url: string) {
+//   if (url.indexOf("googleusercontent.com") !== -1 && url.indexOf("?") === -1) {
+//     return url + "?sz=150";
+//   }
+//   return url;
+// }
 
 // // A loading image URL.
 // const LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif?a'
