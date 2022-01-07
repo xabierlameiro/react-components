@@ -7,17 +7,18 @@
  * 4. Copy the config object snippet, then add it here.
  */
 const config = {
-  apiKey: "AIzaSyAYY60ohSSo6310XkavH_qIHCJrvIH-xu8",
-  authDomain: "friendlychat-6aabb.firebaseapp.com",
-  projectId: "friendlychat-6aabb",
-  storageBucket: "friendlychat-6aabb.appspot.com",
-  messagingSenderId: "985058948997",
-  appId: "1:985058948997:web:9779d8fbbc4d45148c76ec",
-  measurementId: "G-8S73DM1TEL",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
 export function getFirebaseConfig() {
   if (!config || !config.apiKey) {
+    debugger;
     throw new Error(
       "No Firebase configuration object provided." +
         "\n" +
