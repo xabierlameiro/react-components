@@ -4,14 +4,9 @@ import Input from "./Input";
 import { ChatIcon, CloseIcon } from "./Icons";
 import ReactDOM from "react-dom";
 import { ErrorBoundary } from "react-error-boundary";
+import { $ChatWrapper, $ChatContainer } from "./styles";
 
-function ErrorFallback({
-  error,
-  resetErrorBoundary,
-}: {
-  error: any;
-  resetErrorBoundary: any;
-}) {
+function ErrorFallback({ error }: { error: any }) {
   return (
     <div role="alert">
       <p>Something went wrong:</p>
@@ -25,8 +20,8 @@ const Chat = () => {
   const [close, setClose] = useState(false);
 
   return ReactDOM.createPortal(
-    <div className={`chat-wrapper ${close}`}>
-      <div className="chat-container">
+    <$ChatWrapper close={close}>
+      <$ChatContainer>
         <header>
           <span>World chat by Xabier</span>
           <CloseIcon handlerParent={() => setClose(false)} />
@@ -39,9 +34,9 @@ const Chat = () => {
             <Input />
           </footer>
         </ErrorBoundary>
-      </div>
+      </$ChatContainer>
       <ChatIcon handlerParent={() => setClose(true)} />
-    </div>,
+    </$ChatWrapper>,
     document.body
   );
 };

@@ -1,5 +1,6 @@
-import { useLoadMessages } from "../../hooks/useChat";
-import { useFirebaseAuthentication } from "../../hooks/useFirebaseAuthentication";
+import { useLoadMessages } from "../../../hooks/useChat";
+import { useFirebaseAuthentication } from "../../../hooks/useFirebaseAuthentication";
+import { Name, Date } from "./styles";
 
 const Messages = () => {
   const { authUser, signIn } = useFirebaseAuthentication();
@@ -18,8 +19,8 @@ const Messages = () => {
     <>
       {messages?.map((message) => (
         <div key={message.id}>
-          <span className="name">{message.name}</span> {message.message}
-          <span className="date">{message.date}</span>
+          <Name>{message.name}</Name> {message.message}
+          <Date>{message.date}</Date>
         </div>
       ))}
     </>

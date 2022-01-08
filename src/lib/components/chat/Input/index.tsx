@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { saveMessage } from "../../config";
+import { saveMessage } from "../../../config";
 
 const Input = () => {
   const [message, setMessage] = useState("");
